@@ -1,9 +1,9 @@
 // routes/tweetRoutes.ts
 
-import { Router, Request } from "express";
-import { scrapeTweets, searchKeyword } from "../controllers/puppeteer";
-import Joi from "joi";
+import { Request, Router } from "express";
 import asyncHandler from "express-async-handler";
+import Joi from "joi";
+import { scrapeTweets, searchKeyword } from "../controllers/puppeteer";
 
 const router = Router();
 
@@ -13,7 +13,7 @@ const tweetSchema = Joi.object({
 
 router.get(
 	"/tweet",
-	asyncHandler(async (req:Request, res:any) => {
+	asyncHandler(async (req: Request, res: any) => {
 		const { error } = tweetSchema.validate(req.query);
 
 		if (error) {
@@ -38,11 +38,9 @@ router.get(
 				console.warn(
 					"No tweets found at the provided URL"
 				);
-				return res
-					.status(404)
-					.json({
-						error: "No tweets found",
-					});
+				return res.status(404).json({
+					error: "No tweets found",
+				});
 			}
 
 			const keyword = "Sky";
@@ -69,4 +67,5 @@ router.get(
 	})
 );
 
+export { tweetSchema };
 export default router;

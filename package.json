@@ -21,7 +21,8 @@
 		"fs": "^0.0.1-security",
 		"joi": "^17.13.3",
 		"nodemon": "^3.1.7",
-		"puppeteer": "^23.4.0"
+		"puppeteer": "^23.4.0",
+		"supabase": "^1.200.3"
 	},
 	"devDependencies": {
 		"@types/cors": "^2.8.17",

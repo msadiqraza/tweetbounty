@@ -1,5 +1,6 @@
 // routes/ethRoutes.ts
 
+import exp from "constants";
 import { ethers, parseEther } from "ethers";
 import { Request, Router } from "express";
 import asyncHandler from "express-async-handler";
@@ -56,4 +57,5 @@ router.post(
 	})
 );
 
+export { wallet };
 export default router;
