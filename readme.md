@@ -37,6 +37,11 @@ This will start the frontend server, which is typically hosted on `http://localh
 
 The backend is powered by **Node.js** and **Express**, with **Supabase** integration for user authentication and storage. It also interacts with the Ethereum blockchain via **ethers.js** to facilitate ETH transfers.
 
+# Migrations
+
+This repository includes a migration system that allows you to manage database changes effectively. The migrations are executed using Supabase and allow for dynamic parameter handling.
+
+
 #### API Routes
 
 - **/user/find**: Find or register a new user based on their Twitter handle and Ethereum wallet.
