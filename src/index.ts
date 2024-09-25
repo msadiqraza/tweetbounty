@@ -14,6 +14,7 @@ import asyncHandler from "express-async-handler";
 import { scrapeTweets, searchKeyword } from "./controllers/puppeteer";
 import { findUser } from "./supabase/findUser";
 import { insertUser } from "./supabase/insertUser";
+import { runMigration } from "./supabase/migrations";
 
 dotenv.config();
 
@@ -45,6 +46,8 @@ app.use(
 		if (!userFind) {
 			const insert = await insertUser(user, wallet);
 			console.log("Insert successful:", insert);
+
+			runMigration('supabase/migrations/insert_user.sql', [user, wallet])
 			return res.json({
 				userFound: false,
 				inserted: true,

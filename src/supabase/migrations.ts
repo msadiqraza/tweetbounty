@@ -29,7 +29,7 @@ async function runAllMigrations(username: string, wallet: string) {
 		const params = [username, wallet];
 
 		await runMigration(filePath, params);
-	}
+	} 
 }
 
 export{runMigration, runAllMigrations}
